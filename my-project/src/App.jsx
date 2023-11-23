@@ -7,7 +7,8 @@ import { FaSun, FaMoon, FaCoffee } from 'react-icons/fa';
 function App() {
   const sameDateData = _.groupBy(medicineData, 'created_at');
   const items = Object.entries(sameDateData);
-  const [details, setDetails] = useState()
+  const [details, setDetails] = useState();
+  const [selectedDate, setSelectedDate] = useState(null);
   let data = "";
 
   if (details) {
@@ -24,8 +25,8 @@ function App() {
           const dayOfWeek = dayjs(date).locale('en').format('ddd');
 
           return (
-            <div key={formattedDate} className={`m-2 border-2 h-24 w-20 max-w-xs overflow-wrap rounded-md cursor-pointer p-2 `}
-              onClick={() => setDetails(itemsArray)}>
+            <div key={formattedDate} className={`m-2 border-2 h-24 w-20 max-w-xs overflow-wrap rounded-md cursor-pointer p-2 ${selectedDate === formattedDate ? 'bg-blue-300' : ''}`}
+              onClick={() => {setDetails(itemsArray) ;setSelectedDate(formattedDate)}}>
               <p>{formattedDate}</p>
               <p>{dayOfWeek}</p>
 
@@ -42,13 +43,13 @@ function App() {
                 <div>
                   {
                     slotItems.map((item) =>
-                      <div>
-                        <p key={item.id}>{item.medicine_name}</p>
+                      <div key={item.id} >
+                        <p >{item.medicine_name}</p>
                       </div>
                     )
                   }
                 </div>
-                <p className='text-2xl font-bold'>{slotTime}</p>
+                <p className='text-2xl font-bold'> {slotTime}</p>
               </div>
             ))}
           </div>
