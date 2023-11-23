@@ -2,20 +2,47 @@ import React, { useState } from 'react';
 import { medicineData } from './varible';
 import dayjs from 'dayjs';
 import _ from 'lodash';
-import { FaSun, FaMoon, FaCoffee } from 'react-icons/fa';
+import { FaSun, FaMoon, FaCloudSun } from 'react-icons/fa';
+
+function icons(slotTime) {
+  const hour = slotTime.charAt(1);
+  const time = slotTime.split(" ")
+
+  if (time[1] === "am") {
+    if (hour >= 6 && hour < 12) {
+      return <FaSun />;
+    }
+  }
+  if (time[1] === "pm") {
+    if (hour >= 6 && hour < 12) {
+      return <FaMoon />;
+    } else {
+      return <FaCloudSun />
+    }
+  }
+
+}
 
 function App() {
   const sameDateData = _.groupBy(medicineData, 'created_at');
   const items = Object.entries(sameDateData);
-  const [details, setDetails] = useState();
-  const [selectedDate, setSelectedDate] = useState(null);
-  let data = "";
+  const todayDate = dayjs().format('DD-MM-YYYY');
 
+  const todayItem = items.find(([date, itemsArray]) => {
+    if (dayjs(date).format('DD-MM-YYYY') === todayDate) {
+      return itemsArray;
+    }
+  });
+  const [details, setDetails] = useState(todayItem && todayItem[1]);
+  const [selectedDate, setSelectedDate] = useState(dayjs().format("DD"));
+
+
+  let data = "";
   if (details) {
     const sameTime = _.groupBy(details, 'slot_time');
     data = Object.entries(sameTime);
   }
-  
+
   // console.log(data)
   return (
     <>
@@ -23,10 +50,9 @@ function App() {
         {items.map(([date, itemsArray]) => {
           const formattedDate = dayjs(date).format('DD');
           const dayOfWeek = dayjs(date).locale('en').format('ddd');
-
           return (
             <div key={formattedDate} className={`m-2 border-2 h-24 w-20 max-w-xs overflow-wrap rounded-md cursor-pointer p-2 ${selectedDate === formattedDate ? 'bg-blue-300' : ''}`}
-              onClick={() => {setDetails(itemsArray) ;setSelectedDate(formattedDate)}}>
+              onClick={() => { setDetails(itemsArray); setSelectedDate(formattedDate) }}>
               <p>{formattedDate}</p>
               <p>{dayOfWeek}</p>
 
@@ -49,7 +75,7 @@ function App() {
                     )
                   }
                 </div>
-                <p className='text-2xl font-bold'> {slotTime}</p>
+                <p className='text-2xl font-bold'>{icons(slotTime)} {slotTime}</p>
               </div>
             ))}
           </div>
