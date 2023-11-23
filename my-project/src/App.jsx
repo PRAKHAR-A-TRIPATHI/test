@@ -4,9 +4,6 @@ import dayjs from 'dayjs';
 import _ from 'lodash';
 import { FaSun, FaMoon, FaCoffee } from 'react-icons/fa';
 
-
-
-
 function App() {
   const sameDateData = _.groupBy(medicineData, 'created_at');
   const items = Object.entries(sameDateData);
