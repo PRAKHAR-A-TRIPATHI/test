@@ -25,7 +25,7 @@ function icons(slotTime) {
 
 function App() {
   const sameDateData = _.groupBy(medicineData, 'created_at');
-  const sortedData = _.sortBy(Object.entries(sameDateData), ([date]) => new Date(date));
+  const sortedData = _.sortBy(Object.entries(sameDateData), ([date]) => dayjs.utc(date));
   const items = Object.entries(sameDateData);
   const todayDate = dayjs().format('DD-MM-YYYY');
   let data = "";
