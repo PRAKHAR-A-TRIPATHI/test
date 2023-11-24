@@ -28,7 +28,7 @@ export const medicineData = [
         "id": 28830,
         "medicine_taken": false,
         "created_at": "2023-11-24T18:30:00.000Z",
-        "slot_time": "07:55 am",
+        "slot_time": "06:44 pm",
         "dosage": "1",
         "medicine_name": "testmedzaheer007",
         "power": "500"

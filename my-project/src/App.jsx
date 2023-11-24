@@ -59,13 +59,20 @@ function App() {
           const formattedDate = dayjs.utc(date).format('DD');
           const dayOfWeek = dayjs.utc(date).locale('en').format('ddd');
           const valid = dayjs().isBefore(dayjs.utc(date).format('YYYY-MM-DD'));
+          const isSameDate = dayjs().isSame(dayjs.utc(date).format('YYYY-MM-DD'), 'day');
+          function isData(data) {
+            const hoursArray = data.map((item) => item.slot_time)
+            const now = dayjs().format('hh:mm a');
+            let a = hoursArray.some((hours) => hours == now)
+            return a;
+          }
           return (
             <div key={formattedDate} className={`m-2 border-2 h-24 w-20 max-w-xs overflow-wrap rounded-md cursor-pointer p-2 ${selectedDate === formattedDate ? 'bg-blue-300' : ''}`}
               onClick={() => { setDetails(itemsArray); setSelectedDate(formattedDate) }}>
               <p>{formattedDate}</p>
               <p>{dayOfWeek}</p>
               {
-                !valid && <p className='h-2 w-2 bg-red-600 rounded-xl'></p>
+                !valid && <p className={`h-3 w-3  rounded-xl ${isSameDate ? isData(itemsArray) ? "bg-green-600" : "bg-red-600" : "bg-red-600"}`}></p>
               }
 
             </div>
