@@ -3,28 +3,6 @@ export const medicineData = [
     {
         "prescription_id": 1579130,
         "remarks": "",
-        "id": 2881,
-        "medicine_taken": false,
-        "created_at": "2023-11-20T18:30:00.000Z",
-        "slot_time": "07:55 am",
-        "dosage": "1",
-        "medicine_name": "testmedzaheer007",
-        "power": "500"
-    },
-    {
-        "prescription_id": 1579130,
-        "remarks": "",
-        "id": 2882,
-        "medicine_taken": false,
-        "created_at": "2023-11-21T18:30:00.000Z",
-        "slot_time": "07:55 am",
-        "dosage": "1",
-        "medicine_name": "testmedzaheer007",
-        "power": "500"
-    },
-    {
-        "prescription_id": 1579130,
-        "remarks": "",
         "id": 2883,
         "medicine_taken": false,
         "created_at": "2023-11-22T18:30:00.000Z",
@@ -39,6 +17,28 @@ export const medicineData = [
         "id": 28834,
         "medicine_taken": false,
         "created_at": "2023-11-23T18:30:00.000Z",
+        "slot_time": "07:55 am",
+        "dosage": "1",
+        "medicine_name": "testmedzaheer007",
+        "power": "500"
+    },
+    {
+        "prescription_id": 1579130,
+        "remarks": "",
+        "id": 28830,
+        "medicine_taken": false,
+        "created_at": "2023-11-24T18:30:00.000Z",
+        "slot_time": "07:55 am",
+        "dosage": "1",
+        "medicine_name": "testmedzaheer007",
+        "power": "500"
+    },
+    {
+        "prescription_id": 1579130,
+        "remarks": "",
+        "id": 2882,
+        "medicine_taken": false,
+        "created_at": "2023-11-21T18:30:00.000Z",
         "slot_time": "07:55 am",
         "dosage": "1",
         "medicine_name": "testmedzaheer007",
@@ -153,7 +153,29 @@ export const medicineData = [
         "dosage": "1",
         "medicine_name": "testmedzaheer006",
         "power": "500"
-    }
+    },
+    {
+        "prescription_id": 1579130,
+        "remarks": "",
+        "id": 2881,
+        "medicine_taken": false,
+        "created_at": "2023-11-20T18:30:00.000Z",
+        "slot_time": "07:55 am",
+        "dosage": "1",
+        "medicine_name": "testmedzaheer007",
+        "power": "500"
+    },
+    {
+        "prescription_id": 1579130,
+        "remarks": "",
+        "id": 28081,
+        "medicine_taken": false,
+        "created_at": "2023-11-20T18:30:00.000Z",
+        "slot_time": "12:55 pm",
+        "dosage": "1",
+        "medicine_name": "testmedzaheer007",
+        "power": "500"
+    },
 ]
 
 
