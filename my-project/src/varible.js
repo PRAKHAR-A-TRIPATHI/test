@@ -36,6 +36,17 @@ export const medicineData = [
     {
         "prescription_id": 1579130,
         "remarks": "",
+        "id": 28834,
+        "medicine_taken": false,
+        "created_at": "2023-11-23T18:30:00.000Z",
+        "slot_time": "07:55 am",
+        "dosage": "1",
+        "medicine_name": "testmedzaheer007",
+        "power": "500"
+    },
+    {
+        "prescription_id": 1579130,
+        "remarks": "",
         "id": 2886,
         "medicine_taken": false,
         "created_at": "2023-11-28T18:30:00.000Z",

@@ -50,12 +50,15 @@ function App() {
         {items.map(([date, itemsArray]) => {
           const formattedDate = dayjs(date).format('DD');
           const dayOfWeek = dayjs(date).locale('en').format('ddd');
+          const valid = dayjs().isBefore(dayjs(date).format('YYYY-MM-DD'))
           return (
             <div key={formattedDate} className={`m-2 border-2 h-24 w-20 max-w-xs overflow-wrap rounded-md cursor-pointer p-2 ${selectedDate === formattedDate ? 'bg-blue-300' : ''}`}
               onClick={() => { setDetails(itemsArray); setSelectedDate(formattedDate) }}>
               <p>{formattedDate}</p>
               <p>{dayOfWeek}</p>
-
+              {
+                !valid && <p className='h-2 w-2 bg-red-600 rounded-xl'></p>
+              }
             </div>
           );
         })}
